@@ -1,0 +1,9 @@
+{
+  "suite": "connected_data",
+  "cases": [
+    {"id":"CD-001","query":"R-101 cooling path reaches P-201","expected":{"path_exists":true,"max_hops":4}},
+    {"id":"CD-002","query":"P-201 has an open maintenance finding","expected":{"finding_id":"MF-001"}},
+    {"id":"CD-003","query":"P-201 owner resolves from graph","expected":{"team_id":"TEAM-UTIL"}},
+    {"id":"CD-004","query":"R-101 safeguards exist","expected":{"minimum":1}}
+  ]
+}

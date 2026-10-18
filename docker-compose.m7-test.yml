@@ -1,0 +1,12 @@
+services:
+  backend:
+    environment:
+      FALKORDB_GRAPH_NAME: ${FALKORDB_TEST_GRAPH}
+  test-runner:
+    environment:
+      FALKORDB_GRAPH_NAME: ${FALKORDB_TEST_GRAPH}
+      API_BASE_URL: http://backend:8000
+      PYTHONPATH: /workspace/backend:/workspace/mcp-server
+    depends_on:
+      backend:
+        condition: service_healthy

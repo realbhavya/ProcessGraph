@@ -1,0 +1,160 @@
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    container_name: processgraph-falkordb
+    environment:
+      REDIS_ARGS: "--requirepass ${FALKORDB_PASSWORD:-local-falkordb-password} --appendonly yes"
+    ports:
+      - "6379:6379"
+      - "${FALKORDB_BROWSER_PORT:-3000}:3000"
+    volumes:
+      - falkordb_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a ${FALKORDB_PASSWORD:-local-falkordb-password} ping | grep PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+    restart: unless-stopped
+
+  timeseries:
+    image: postgres:17-alpine
+    container_name: processgraph-timeseries
+    environment:
+      POSTGRES_DB: ${TIMESERIES_DB:-processgraph}
+      POSTGRES_USER: ${TIMESERIES_USER:-processgraph}
+      POSTGRES_PASSWORD: ${TIMESERIES_PASSWORD:-processgraph-local}
+    ports:
+      - "${TIMESERIES_PORT:-5432}:5432"
+    volumes:
+      - timeseries_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${TIMESERIES_USER:-processgraph} -d ${TIMESERIES_DB:-processgraph}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+    container_name: processgraph-backend
+    env_file:
+      - .env
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    depends_on:
+      falkordb:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  opcua-replay:
+    profiles: ["live"]
+    build:
+      context: ./backend
+    working_dir: /app
+    command: ["python", "-m", "app.opcua.server"]
+    env_file: [.env]
+    environment:
+      TIMESERIES_DSN: postgresql://processgraph:${TIMESERIES_PASSWORD:-processgraph-local}@timeseries:5432/${TIMESERIES_DB:-processgraph}
+      OPCUA_ENDPOINT: opc.tcp://0.0.0.0:4840/processgraph/tep/
+    ports: ["4840:4840"]
+    depends_on:
+      timeseries:
+        condition: service_healthy
+    restart: unless-stopped
+
+  opcua-collector:
+    profiles: ["live"]
+    build:
+      context: ./backend
+    working_dir: /app
+    command: ["python", "-m", "app.opcua.collector"]
+    env_file: [.env]
+    environment:
+      TIMESERIES_DSN: postgresql://processgraph:${TIMESERIES_PASSWORD:-processgraph-local}@timeseries:5432/${TIMESERIES_DB:-processgraph}
+      OPCUA_ENDPOINT: opc.tcp://opcua-replay:4840/processgraph/tep/
+    depends_on:
+      opcua-replay:
+        condition: service_started
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+    container_name: processgraph-frontend
+    ports:
+      - "3001:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  realdata-loader:
+    profiles: ["data"]
+    build:
+      context: .
+      dockerfile: test-runner/Dockerfile
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    environment:
+      PYTHONPATH: /workspace/backend
+      TIMESERIES_DSN: postgresql://processgraph:${TIMESERIES_PASSWORD:-processgraph-local}@timeseries:5432/${TIMESERIES_DB:-processgraph}
+    depends_on:
+      timeseries:
+        condition: service_healthy
+
+  test-runner:
+    profiles: ["test"]
+    build:
+      context: .
+      dockerfile: test-runner/Dockerfile
+    environment:
+      FALKORDB_HOST: falkordb
+      FALKORDB_PORT: 6379
+      FALKORDB_PASSWORD: ${FALKORDB_PASSWORD:-local-falkordb-password}
+      FALKORDB_GRAPH_NAME: ${FALKORDB_TEST_GRAPH:-processgraph_test_default}
+    depends_on:
+      falkordb:
+        condition: service_healthy
+
+  mcp-server:
+    build:
+      context: .
+      dockerfile: mcp-server/Dockerfile
+    container_name: processgraph-mcp-server
+    env_file:
+      - .env
+    environment:
+      FALKORDB_GRAPH_NAME: ${FALKORDB_GRAPH_NAME:-}
+      MCP_TRANSPORT: stdio
+    depends_on:
+      falkordb:
+        condition: service_healthy
+    profiles: ["mcp"]
+
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    container_name: processgraph-prometheus
+    command: ["--config.file=/etc/prometheus/prometheus.yml"]
+    volumes:
+      - ./ops/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./ops/alert-rules.yml:/etc/prometheus/alert-rules.yml:ro
+    ports:
+      - "${PROMETHEUS_PORT:-9090}:9090"
+    depends_on:
+      backend:
+        condition: service_healthy
+    profiles: ["observability"]
+
+volumes:
+  falkordb_data:
+  timeseries_data:

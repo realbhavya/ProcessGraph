@@ -1,0 +1,9 @@
+groups:
+  - name: processgraph
+    rules:
+      - alert: ProcessGraphBackendDown
+        expr: up{job="processgraph-backend"} == 0
+        for: 2m
+      - alert: ProcessGraphHighServerErrorRate
+        expr: sum(rate(processgraph_http_requests_total{status=~"5.."}[5m])) / clamp_min(sum(rate(processgraph_http_requests_total[5m])), 1) > 0.05
+        for: 5m

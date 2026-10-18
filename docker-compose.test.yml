@@ -1,0 +1,10 @@
+services:
+  backend:
+    environment:
+      FALKORDB_GRAPH_NAME: ${FALKORDB_TEST_GRAPH}
+  test-runner:
+    environment:
+      API_BASE_URL: http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy

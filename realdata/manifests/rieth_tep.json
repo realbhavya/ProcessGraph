@@ -1,0 +1,23 @@
+{
+  "dataset_id": "rieth-tep-2017",
+  "title": "Additional Tennessee Eastman Process Simulation Data for Anomaly Detection Evaluation",
+  "persistent_id": "doi:10.7910/DVN/6C3JR1",
+  "repository": "Harvard Dataverse",
+  "license": "CC0",
+  "access_api": "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/6C3JR1&format=original",
+  "sampling_interval_seconds": 180,
+  "expected_variables": 52,
+  "identity_columns": ["faultNumber", "simulationRun", "sample"],
+  "expected_source_files": [
+    "fault_free_training.RData",
+    "fault_free_testing.RData",
+    "faulty_training.RData",
+    "faulty_testing.RData"
+  ],
+  "provenance": {
+    "authors": ["Cory A. Rieth", "Ben D. Amsel", "Randy Tran", "Maia B. Cook"],
+    "year": 2017,
+    "source_type": "high-fidelity process simulation benchmark",
+    "is_live_commercial_plant_data": false
+  }
+}

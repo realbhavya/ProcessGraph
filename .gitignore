@@ -1,0 +1,36 @@
+# secrets
+.env
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Node
+node_modules/
+dist/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Runtime
+*.log
+coverage.xml
+htmlcov/
+
+# Test output
+test-results/
+node_modules/
+dist/
+test-results/
+evals/results/*.json
+realdata/raw/**
+realdata/reports/**
+!realdata/raw/.gitkeep
+!realdata/reports/.gitkeep

@@ -1,0 +1,9 @@
+{
+  "suite": "coordination",
+  "cases": [
+    {"id":"CO-001","expected":{"task_count":3,"completed_tasks":3}},
+    {"id":"CO-002","expected":{"handoff_count":1,"receiver":"AGENT-MEM"}},
+    {"id":"CO-003","expected":{"validated_findings":3,"failed_tasks":0}},
+    {"id":"CO-004","expected":{"parallel_agents":["AGENT-CONN","AGENT-SAFE"]}}
+  ]
+}

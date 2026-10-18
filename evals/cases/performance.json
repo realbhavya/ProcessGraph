@@ -1,0 +1,9 @@
+{
+  "suite": "performance",
+  "cases": [
+    {"id":"PE-001","operation":"equipment.resolve","iterations":20,"p95_limit_ms":500},
+    {"id":"PE-002","operation":"equipment.utility_path","iterations":20,"p95_limit_ms":1000},
+    {"id":"PE-003","operation":"context.open_findings","iterations":20,"p95_limit_ms":1000},
+    {"id":"PE-004","operation":"context.safeguards","iterations":20,"p95_limit_ms":750}
+  ]
+}

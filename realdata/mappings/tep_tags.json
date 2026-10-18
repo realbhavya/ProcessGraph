@@ -1,0 +1,369 @@
+{
+  "schema_version": "1.0",
+  "tags": [
+    {
+      "source_column": "xmeas_1",
+      "canonical_tag": "TEP.XMEAS.01",
+      "kind": "measurement",
+      "description": "A feed stream 1",
+      "unit": "kscmh"
+    },
+    {
+      "source_column": "xmeas_2",
+      "canonical_tag": "TEP.XMEAS.02",
+      "kind": "measurement",
+      "description": "D feed stream 2",
+      "unit": "kg/h"
+    },
+    {
+      "source_column": "xmeas_3",
+      "canonical_tag": "TEP.XMEAS.03",
+      "kind": "measurement",
+      "description": "E feed stream 3",
+      "unit": "kg/h"
+    },
+    {
+      "source_column": "xmeas_4",
+      "canonical_tag": "TEP.XMEAS.04",
+      "kind": "measurement",
+      "description": "A and C feed stream 4",
+      "unit": "kscmh"
+    },
+    {
+      "source_column": "xmeas_5",
+      "canonical_tag": "TEP.XMEAS.05",
+      "kind": "measurement",
+      "description": "Recycle flow stream 8",
+      "unit": "kscmh"
+    },
+    {
+      "source_column": "xmeas_6",
+      "canonical_tag": "TEP.XMEAS.06",
+      "kind": "measurement",
+      "description": "Reactor feed rate stream 6",
+      "unit": "kscmh"
+    },
+    {
+      "source_column": "xmeas_7",
+      "canonical_tag": "TEP.XMEAS.07",
+      "kind": "measurement",
+      "description": "Reactor pressure",
+      "unit": "kPa gauge"
+    },
+    {
+      "source_column": "xmeas_8",
+      "canonical_tag": "TEP.XMEAS.08",
+      "kind": "measurement",
+      "description": "Reactor level",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmeas_9",
+      "canonical_tag": "TEP.XMEAS.09",
+      "kind": "measurement",
+      "description": "Reactor temperature",
+      "unit": "degC"
+    },
+    {
+      "source_column": "xmeas_10",
+      "canonical_tag": "TEP.XMEAS.10",
+      "kind": "measurement",
+      "description": "Purge rate stream 9",
+      "unit": "kscmh"
+    },
+    {
+      "source_column": "xmeas_11",
+      "canonical_tag": "TEP.XMEAS.11",
+      "kind": "measurement",
+      "description": "Product separator temperature",
+      "unit": "degC"
+    },
+    {
+      "source_column": "xmeas_12",
+      "canonical_tag": "TEP.XMEAS.12",
+      "kind": "measurement",
+      "description": "Product separator level",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmeas_13",
+      "canonical_tag": "TEP.XMEAS.13",
+      "kind": "measurement",
+      "description": "Product separator pressure",
+      "unit": "kPa gauge"
+    },
+    {
+      "source_column": "xmeas_14",
+      "canonical_tag": "TEP.XMEAS.14",
+      "kind": "measurement",
+      "description": "Product separator underflow stream 10",
+      "unit": "m3/h"
+    },
+    {
+      "source_column": "xmeas_15",
+      "canonical_tag": "TEP.XMEAS.15",
+      "kind": "measurement",
+      "description": "Stripper level",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmeas_16",
+      "canonical_tag": "TEP.XMEAS.16",
+      "kind": "measurement",
+      "description": "Stripper pressure",
+      "unit": "kPa gauge"
+    },
+    {
+      "source_column": "xmeas_17",
+      "canonical_tag": "TEP.XMEAS.17",
+      "kind": "measurement",
+      "description": "Stripper underflow stream 11",
+      "unit": "m3/h"
+    },
+    {
+      "source_column": "xmeas_18",
+      "canonical_tag": "TEP.XMEAS.18",
+      "kind": "measurement",
+      "description": "Stripper temperature",
+      "unit": "degC"
+    },
+    {
+      "source_column": "xmeas_19",
+      "canonical_tag": "TEP.XMEAS.19",
+      "kind": "measurement",
+      "description": "Stripper steam flow",
+      "unit": "kg/h"
+    },
+    {
+      "source_column": "xmeas_20",
+      "canonical_tag": "TEP.XMEAS.20",
+      "kind": "measurement",
+      "description": "Compressor work",
+      "unit": "kW"
+    },
+    {
+      "source_column": "xmeas_21",
+      "canonical_tag": "TEP.XMEAS.21",
+      "kind": "measurement",
+      "description": "Reactor cooling water outlet temperature",
+      "unit": "degC"
+    },
+    {
+      "source_column": "xmeas_22",
+      "canonical_tag": "TEP.XMEAS.22",
+      "kind": "measurement",
+      "description": "Separator cooling water outlet temperature",
+      "unit": "degC"
+    },
+    {
+      "source_column": "xmeas_23",
+      "canonical_tag": "TEP.XMEAS.23",
+      "kind": "measurement",
+      "description": "Composition measurement 1",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_24",
+      "canonical_tag": "TEP.XMEAS.24",
+      "kind": "measurement",
+      "description": "Composition measurement 2",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_25",
+      "canonical_tag": "TEP.XMEAS.25",
+      "kind": "measurement",
+      "description": "Composition measurement 3",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_26",
+      "canonical_tag": "TEP.XMEAS.26",
+      "kind": "measurement",
+      "description": "Composition measurement 4",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_27",
+      "canonical_tag": "TEP.XMEAS.27",
+      "kind": "measurement",
+      "description": "Composition measurement 5",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_28",
+      "canonical_tag": "TEP.XMEAS.28",
+      "kind": "measurement",
+      "description": "Composition measurement 6",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_29",
+      "canonical_tag": "TEP.XMEAS.29",
+      "kind": "measurement",
+      "description": "Composition measurement 7",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_30",
+      "canonical_tag": "TEP.XMEAS.30",
+      "kind": "measurement",
+      "description": "Composition measurement 8",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_31",
+      "canonical_tag": "TEP.XMEAS.31",
+      "kind": "measurement",
+      "description": "Composition measurement 9",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_32",
+      "canonical_tag": "TEP.XMEAS.32",
+      "kind": "measurement",
+      "description": "Composition measurement 10",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_33",
+      "canonical_tag": "TEP.XMEAS.33",
+      "kind": "measurement",
+      "description": "Composition measurement 11",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_34",
+      "canonical_tag": "TEP.XMEAS.34",
+      "kind": "measurement",
+      "description": "Composition measurement 12",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_35",
+      "canonical_tag": "TEP.XMEAS.35",
+      "kind": "measurement",
+      "description": "Composition measurement 13",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_36",
+      "canonical_tag": "TEP.XMEAS.36",
+      "kind": "measurement",
+      "description": "Composition measurement 14",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_37",
+      "canonical_tag": "TEP.XMEAS.37",
+      "kind": "measurement",
+      "description": "Composition measurement 15",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_38",
+      "canonical_tag": "TEP.XMEAS.38",
+      "kind": "measurement",
+      "description": "Composition measurement 16",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_39",
+      "canonical_tag": "TEP.XMEAS.39",
+      "kind": "measurement",
+      "description": "Composition measurement 17",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_40",
+      "canonical_tag": "TEP.XMEAS.40",
+      "kind": "measurement",
+      "description": "Composition measurement 18",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmeas_41",
+      "canonical_tag": "TEP.XMEAS.41",
+      "kind": "measurement",
+      "description": "Composition measurement 19",
+      "unit": "mol_percent"
+    },
+    {
+      "source_column": "xmv_1",
+      "canonical_tag": "TEP.XMV.01",
+      "kind": "manipulated_variable",
+      "description": "D feed flow valve",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmv_2",
+      "canonical_tag": "TEP.XMV.02",
+      "kind": "manipulated_variable",
+      "description": "E feed flow valve",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmv_3",
+      "canonical_tag": "TEP.XMV.03",
+      "kind": "manipulated_variable",
+      "description": "A feed flow valve",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmv_4",
+      "canonical_tag": "TEP.XMV.04",
+      "kind": "manipulated_variable",
+      "description": "A and C feed flow valve",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmv_5",
+      "canonical_tag": "TEP.XMV.05",
+      "kind": "manipulated_variable",
+      "description": "Compressor recycle valve",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmv_6",
+      "canonical_tag": "TEP.XMV.06",
+      "kind": "manipulated_variable",
+      "description": "Purge valve",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmv_7",
+      "canonical_tag": "TEP.XMV.07",
+      "kind": "manipulated_variable",
+      "description": "Separator pot liquid flow valve",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmv_8",
+      "canonical_tag": "TEP.XMV.08",
+      "kind": "manipulated_variable",
+      "description": "Stripper liquid product flow valve",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmv_9",
+      "canonical_tag": "TEP.XMV.09",
+      "kind": "manipulated_variable",
+      "description": "Stripper steam valve",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmv_10",
+      "canonical_tag": "TEP.XMV.10",
+      "kind": "manipulated_variable",
+      "description": "Reactor cooling water flow valve",
+      "unit": "percent"
+    },
+    {
+      "source_column": "xmv_11",
+      "canonical_tag": "TEP.XMV.11",
+      "kind": "manipulated_variable",
+      "description": "Condenser cooling water flow valve",
+      "unit": "percent"
+    }
+  ]
+}

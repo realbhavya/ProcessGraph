@@ -1,0 +1,15 @@
+.git
+.env
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.ruff_cache
+test-results
+*.zip
+.env
+**/__pycache__
+**/.pytest_cache
+**/node_modules
+**/dist
+test-results
+evals/results/*.json

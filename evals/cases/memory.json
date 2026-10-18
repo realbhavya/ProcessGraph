@@ -1,0 +1,9 @@
+{
+  "suite": "memory",
+  "cases": [
+    {"id":"ME-001","expected":{"candidate_hidden":true}},
+    {"id":"ME-002","expected":{"approved_visible":true}},
+    {"id":"ME-003","expected":{"superseded_hidden":true,"replacement_visible":true}},
+    {"id":"ME-004","expected":{"source_required":true,"evidence_required":true,"approval_required":true}}
+  ]
+}

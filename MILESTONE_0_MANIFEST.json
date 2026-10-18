@@ -1,0 +1,43 @@
+{
+  "milestone": 0,
+  "status": "implemented",
+  "required_gate": {
+    "implementation": true,
+    "tests_included": true,
+    "documentation": true,
+    "demonstration_instructions": true
+  },
+  "files": [
+    ".env.example",
+    ".github/workflows/ci.yml",
+    ".gitignore",
+    "LICENSE",
+    "Makefile",
+    "README.md",
+    "backend/Dockerfile",
+    "backend/app/__init__.py",
+    "backend/app/config.py",
+    "backend/app/logging_config.py",
+    "backend/app/main.py",
+    "backend/app/middleware.py",
+    "backend/app/schemas.py",
+    "backend/pyproject.toml",
+    "backend/tests/test_health.py",
+    "docker-compose.yml",
+    "docs/adr/0001-foundation.md",
+    "docs/architecture-overview.md",
+    "docs/product-requirements.md",
+    "docs/safety-boundaries.md",
+    "evals/README.md",
+    "frontend/Dockerfile",
+    "frontend/index.html",
+    "frontend/package.json",
+    "frontend/src/main.jsx",
+    "frontend/src/styles.css",
+    "graph/README.md",
+    "mcp-server/README.md",
+    "scripts/check_m0.sh",
+    "scripts/start.sh",
+    "scripts/stop.sh"
+  ]
+}

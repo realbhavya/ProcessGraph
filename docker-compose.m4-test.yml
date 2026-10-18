@@ -1,0 +1,5 @@
+services:
+  test-runner:
+    environment:
+      FALKORDB_GRAPH_NAME: ${FALKORDB_TEST_GRAPH}
+      PYTHONPATH: /workspace/backend:/workspace/mcp-server
